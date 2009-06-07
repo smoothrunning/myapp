@@ -1,4 +1,4 @@
 *.log
 tmp/**/*
 thumbs.db
-assets/**/*
+public/assets/**/*
