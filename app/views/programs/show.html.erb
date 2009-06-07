@@ -1,0 +1,80 @@
+<% form_for @program, :html => { :multipart => true } do |f| %>
+	
+
+
+<table>
+  	
+  <tr> 
+  <h1> <%= @program.user.login+ "'".pluralize  %>  program </h1>
+   <td>
+     <%= f.label :goal %>
+     <%= f.text_field :goal %>
+     <%= f.label :type %>
+     <%= f.text_field :exercise_type, :size => "10" %>
+    <%= f.label :Completed? %>
+    <%= f.check_box :completed %>
+    <%= link_to 'PDF Program', :action => 'show', :id => @program, :format => 'pdf' %>
+   </td>
+   </tr>
+  <tr>
+  	<td>
+   <%= f.label :start_date %>
+   <%= f.date_select("start_date" , :order => [:day, :month, :year]) %>
+   <%= f.label :follow_up_date %>
+   <%= f.date_select("follow_up_date" , :default => 8.weeks.from_now, :order => [:day, :month, :year]) %><br/>
+   </td>
+    </tr>
+    <tr>
+    	<td>
+   <%= f.label :description %><br/>
+   <%= f.text_area(:description, :rows=>"3", :cols=>"100") %>
+   </td>
+  </tr>
+ 
+  <tr><td>
+  	</table>
+
+
+<div> 
+<fieldset> 	
+	 <table>
+     <tr>
+      	<th> Target Muscle        </th>
+     	<th> Exercise             </th>
+       	<th> Repititions 	      </th>
+   		<th> Weight      	      </th>
+      	<th> Instructions	      </th>
+      	<th> Photo       	      </th>
+    </tr>
+	 
+    
+  <% @program.program_exercises.each do |program_exercise| %>
+   	<% fields_for "program[program_exercises]", program_exercise do |e| %>
+	 <%= e.error_messages %>
+	 
+    
+ 	
+  	<tr>
+    	<td> <%=  program_exercise.target_muscle.muscle%>         </td>
+   		<td> <%=  program_exercise.exercise.name%>                </td>
+   	  	<td> <%= program_exercise.repititions %>         	      </td>
+   		<td> <%= program_exercise.weight %>            		      </td>
+   		<td> <%= program_exercise.exercise.instruction %> 			</td>
+    	<td>  <%= image_tag program_exercise.exercise.photo.url(:thumb) %> </td>
+     
+    </tr>
+  	<% end %>
+<% end %>
+	</table>
+</filedset> 
+</div>
+<p> <b>Warm up:</b> 	<%=h @program.warm_up %></p>
+<p> <b>Cool Down:</b> 	<%=h @program.cool_down %></p>
+<p> <b>Strech:</b>    	<%=h @program.strech %></p>
+<p> <b>Remember:</b>  	<%=h @program.remember %></p>
+<p> <b>User:</b>		<%=h User.find(@program.user_id).login %></p>
+
+<% end %>
+
+<%= link_to 'Edit', edit_program_path(@program) %> |
+<%= link_to 'Back', programs_path %>

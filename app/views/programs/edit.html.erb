@@ -1,0 +1,80 @@
+
+
+  
+<% form_for @program do |f| %>
+  <%= f.error_messages %>
+  
+  <table>
+  	
+  <tr> 
+  <h1>Maintain <%= @program.user.login+ "'".pluralize  %>  program
+    <%= f.submit "Update" %></h1>
+   <td>
+     <%= f.label :goal %>
+     <%= f.text_field :goal %>
+     <%= f.label :type %>
+     <%= f.text_field :exercise_type %>
+    <%= f.label :Completed? %>
+    <%= f.check_box :completed %>
+   </td>
+   </tr>
+  <tr>
+  	<td>
+   <%= f.label :start_date %>
+   <%= f.date_select("start_date" , :order => [:day, :month, :year]) %>
+   <%= f.label :follow_up_date %>
+   <%= f.date_select("follow_up_date" , :default => 8.weeks.from_now, :order => [:day, :month, :year]) %><br/>
+   </td>
+    </tr>
+    <tr>
+    	<td>
+   <%= f.label :description %><br/>
+   <%= f.text_area(:description, :rows=>"3", :cols=>"100") %>
+   </td>
+  </tr>
+ </table>
+ <div id = "program_exercises">
+ 	
+ <table id = "exercise" >
+ 	<tr>
+	 	<th> Exercise </th>
+	  	<th style= "width: 20%;"> Repitions</th>
+	  	<th> Weight</th>
+	  	<th> Muscle</th>
+   	</tr>
+ </table>
+ 
+    <ul id="program_exercise">
+   	<%= render :partial =>'program_exercise', :collection => @program.program_exercises %>
+  	<%= sortable_element("program_exercise", :url => sort_programs_path ,:handle => "handle") %>
+  	</ul>
+  </div>
+  <p><%= add_program_exercise_link "Add an exercise" %>  </p>
+    
+   
+  	<table>
+  	<tr><td>
+     <%= f.label :warm_up %>
+    <%= f.text_field :warm_up %>
+
+    <%= f.label :cool_down %>
+    <%= f.text_field :cool_down %>
+    </tr></td>
+ 	<tr><td>
+   
+    <%= f.label :stretch %><br />
+    <%= f.text_area(:strech , :rows=>"2", :cols=>"100") %>
+   
+    <%= f.label :remember %><br />
+    <%= f.text_area(:remember, :rows=>"2", :cols=>"100") %>
+   
+  
+   
+    <%= f.submit "Update" %>
+  </td>
+  </tr>
+  </table>
+<% end %>
+
+<%= link_to 'Show', @program %> |
+<%= link_to 'Back', programs_path %>

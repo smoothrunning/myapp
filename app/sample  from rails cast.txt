@@ -1,0 +1,137 @@
+
+
+<!-- projects/edit.rhtml -->
+<% form_for :project, :url => project_path(@project), :html => { :method => 'put' } do |f| %>
+  <%= render :partial => 'fields', :locals => { :f => f } %>
+  <p><%= submit_tag "Update Project" %></p>
+<% end %>
+
+<!-- projects/new.rhtml -->
+<% form_for :project, :url => projects_path do |f| %>
+  <%= render :partial => 'fields', :locals => { :f => f } %>
+  <p><%= submit_tag "Create Project" %></p>
+<% end %>
+
+<!-- projects/_fields.rhtml -->
+<p>
+  Name: <%= f.text_field :name %>
+</p>
+<div id="tasks">
+  <%= render :partial => 'task', :collection => @project.tasks %>
+</div>
+<p><%= add_task_link "Add a task" %></p>
+
+
+<!-- projects/_task.rhtml -->
+<div class="task">
+  <% fields_for_task(task) do |task_form| %>
+  <p>
+    Task: <%= task_form.text_field :name %>
+    <%= link_to_function "remove", "$(this).up('.task').remove()" %>
+  </p>
+  <% end %>
+</div>
+
+
+
+
+
+# models/project.rb
+class Project < ActiveRecord::Base
+  has_many :tasks, :dependent => :destroy
+
+  validates_presence_of :name
+  validates_associated :tasks
+  
+  after_update :save_tasks
+
+  def new_task_attributes=(task_attributes)
+    task_attributes.each do |attributes|
+      tasks.build(attributes)
+    end
+  end
+  
+  def existing_task_attributes=(task_attributes)
+    tasks.reject(&:new_record?).each do |task|
+      attributes = task_attributes[task.id.to_s]
+      if attributes
+        task.attributes = attributes
+      else
+        tasks.delete(task)
+      end
+    end
+  end
+  
+  def save_tasks
+    tasks.each do |task|
+      task.save(false)
+    end
+  end
+end
+
+
+# models/task.rb
+class Task < ActiveRecord::Base
+  belongs_to :project
+  validates_presence_of :name
+end
+
+
+# projects_controller.rb
+def new
+  @project = Project.new
+  @project.tasks.build
+end
+
+def create
+  @project = Project.new(params[:project])
+  if @project.save
+    flash[:notice] = "Successfully created project and tasks."
+    redirect_to projects_path
+  else
+    render :action => 'new'
+  end
+end
+
+def edit
+  @project = Project.find(params[:id])
+end
+
+def update
+  params[:project][:existing_task_attributes] ||= {}
+  
+  @project = Project.find(params[:id])
+  if @project.update_attributes(params[:project])
+    flash[:notice] = "Successfully updated project and tasks."
+    redirect_to project_path(@project)
+  else
+    render :action => 'edit'
+  end
+end
+
+
+# projects_helper.rb
+def fields_for_task(task, &block)
+  prefix = task.new_record? ? 'new' : 'existing'
+  fields_for("project[#{prefix}_task_attributes][]", task, &block)
+end
+
+def add_task_link(name) 
+  link_to_function name do |page| 
+    page.insert_html :bottom, :tasks, :partial => 'task', :object => Task.new 
+  end 
+end 
+
+
+
+
+
+<!-- projects/_fields.rhtml -->
+<%= error_messages_for :project %>
+
+
+
+<!-- projects/_task.rhtml -->
+<% @task = task %>
+<%= error_messages_for :task %>
+

@@ -1,0 +1,18 @@
+
+<% new_or_existing = program_exercise.new_record? ? 'new' : 'existing' %>
+<% prefix = "program[#{new_or_existing}_program_exercise_attributes][]" %>
+
+<% fields_for prefix, program_exercise do |pe_form| %>
+	<li id= "program_exercise_<%= program_exercise.id%>", class="prog_exercise">
+		<span class="handle">[drag]</span>	
+		<%= pe_form.collection_select(:exercise_id, Exercise.find(:all), :id, :name, {}) %>	
+		<%= pe_form.text_field :repititions , :size => "15"%>
+		<%= pe_form.text_field :weight , :size => "15"%>
+	   	<%= pe_form.collection_select(:target_muscle_id, TargetMuscle.find(:all), :id, :muscle, {}) %>
+	  
+		<%= link_to_function "remove", "$(this).up('.prog_exercise').remove()" %>
+	</li>
+ <% end %>
+
+
+

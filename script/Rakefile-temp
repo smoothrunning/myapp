@@ -1,0 +1,14 @@
+
+
+ruby script/generate scaffold Program title:string description:text repititions:integer times_per_week:integer
+
+
+
+# 
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+ 
+
+require 'rake'
+require 'rake/testtask'
+require 'rake/rdoctask'

@@ -1,0 +1,38 @@
+<h1>Listing programs</h1>
+   <%= if current_user.admin_user?
+     render :partial => 'select_user'
+     end %>
+
+<table>
+  <tr>
+    <th>Goal</th>
+    <th>Type</th>
+    <th {white-space: no-wrap}>Start Date</th>
+    <th {white-space: no-wrap}>Follow Up</th>
+    <th>Finshed</th>
+    <th>Client</th>
+  </tr>
+
+<% for program in @programs %>
+
+
+  <tr>
+     <td><%=h program.goal %></td>
+     <td><%=h program.exercise_type %></td>
+    <td><%=h program.start_date.strftime("%d %b %Y") %></td>
+    <td><%=h distance_of_time_in_words(program.follow_up_date,program.start_date) %></td>
+    <td><%= program.completed? ? "Yes" : "No" %></td>
+    <td><%=h program.user.login %></td>
+    <td><%= link_to 'Show', program %></td>
+    <td><%= link_to 'Edit', edit_program_path(program) %></td>
+    <td><%= link_to 'Destroy', program, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New program', new_program_path %>
+
+

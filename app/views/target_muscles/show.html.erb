@@ -1,0 +1,33 @@
+<h1>Exercises for the Target Muscle - <%= @target_muscle.muscle %> 	 </h1>
+<div>
+	
+<% form_for @target_muscle, :html => { :multipart => true } do |f| %>
+	
+  <%= f.error_messages %>
+
+<p>
+   <fieldset> 	
+ 	
+   	 
+ <% @target_muscle.exercises.each do |exercise| %>
+ 	
+ <% fields_for "target_muscle[exercises]", exercise do |e| %>
+ <%= e.error_messages %>
+ <p>
+  	<%= e.text_field :name, :size => "10", :class => "age_box"
+ %>
+  	<%= e.text_area :instruction , :size => "40x10"%>
+ 	<%= image_tag exercise.photo.url(:large) %>
+
+  	</p>
+  
+<% end %>
+<% end %>
+</filedset>
+
+<% end %>
+</div>
+
+
+<%= link_to 'Edit', edit_target_muscle_path(@target_muscle) %> |
+<%= link_to 'Back', target_muscles_path %>

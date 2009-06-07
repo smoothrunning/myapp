@@ -1,0 +1,74 @@
+<h1>New program</h1>
+
+<% form_for(@program) do |f| %>
+  <%= f.error_messages %>
+
+    <tr>
+    <td>
+
+    <%= f.label :Client %><br />
+    <%= f.collection_select (:user_id, User.find(:all), :id, :login, {}) %>
+
+  </td>
+  <td>
+
+    <%= f.label :goal %><br />
+    <%= f.text_field :goal %>
+
+    </td>
+  </tr>
+
+    <p>
+    <%= f.label :Completed %><br />
+    <%= f.check_box :completed %>
+    </p>
+  <p>
+    <%= f.label :type %><br
+    <%= f.text_field :exercise_type %>
+  </p>
+  <p>
+    <%= f.label :start_date %><br
+    <%= f.date_select("start_date" , :order => [:day, :month, :year]) %>
+  </p>
+  <p>
+    <%= f.label :follow_up_date %><br
+    <%= f.date_select("follow_up_date" , :default => 8.weeks.from_now, :order => [:day, :month, :year]) %>
+  </p>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area (:description, :rows=>"5", :cols=>"70") %>
+  </p>
+  
+  <p>
+  <div id ="program_exercises">
+  	<ul id="program_exercise">
+  <%= render :partial =>'program_exercise', :collection => @program.program_exercises %>
+   </p>
+	<%= sortable_element("program_exercise", :url => sort_programs_path ,:handle => "handle", :update => "dummy") %>
+  </div>
+  <p><%= add_program_exercise_link "Add an exercise" %>  </p>
+  </ul>
+  <p>
+    <%= f.label :warm_up %><br />
+    <%= f.text_field :warm_up %>
+  </p>
+  <p>
+    <%= f.label :cool_down %><br />
+    <%= f.text_field :cool_down %>
+  </p>
+  <p>
+    <%= f.label :stretch %><br />
+    <%= f.text_area (:strech , :rows=>"5", :cols=>"70") %>
+  </p>
+<p>
+    <%= f.label :remember %><br />
+    <%= f.text_area (:remember, :rows=>"5", :cols=>"70") %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', programs_path %>

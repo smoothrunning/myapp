@@ -1,0 +1,20 @@
+<div class="exercise">
+<% new_or_existing = exercise.new_record? ? 'new' : 'existing' %>
+<% prefix = "target_muscle[#{new_or_existing}_exercise_attributes][]" %>
+
+<% fields_for prefix, exercise do |exercise_form| %>
+ Exercise: <%= exercise_form.text_field :name , :size => "10", :class => "age_box"%>
+ <%= exercise_form.text_area :instruction , :size => "30*30", :class => "age_box"%>
+ <%= exercise_form.file_field :photo %>
+
+<% if exercise.photo.exists? then %>
+<%= image_tag exercise.photo.url(:thumb) %>
+<% else %>
+<p> There are no photo's attached, upload one. </p>
+<% end %>
+
+
+<% end %>
+ <%= link_to_function "remove", "$(this).up('.exercise').remove()" %>
+
+</div>

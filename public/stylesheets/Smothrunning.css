@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+}
+#pagewrapper {
+    width: 99%;
+    margin: 2px auto;
+    padding: 0;
+    border: 1px solid #999;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#header {
+	margin: 0;
+    padding: 0;
+}
+#header p {
+	background-color: black;
+    padding: 20px 10px;
+    font-size: 24px;
+    margin: 0;
+    color: white;
+    font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#footer {
+    background-color: purple;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    clear:both;
+    border-top: 2px solid #333;
+    text-align: center;
+}
+#footer p, #footer a {
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    font-weight:bold;
+    margin: 0;
+    padding: 2px;
+}
+
+/* Navigation Bar */
+
+#navbar ul {
+    padding: 0;
+    margin: 0;
+    background-color: purple;
+    color: White;
+    float: left;
+    width: 100%;
+    list-style: none;
+    font-weight: bold;
+    font-size: 13px;
+    border-bottom: 2px solid #333;
+}
+#navbar ul li {
+    display: inline;
+    color: White;
+    float: left;
+    border-right: 1px solid #333;
+    font-family: arial, helvetica, sans-serif;
+}
+#navbar ul li a {
+    padding: 0.2em 0.7em;
+    background-color: purple;
+    color: White;
+    text-decoration: none;
+    float:left;
+}
+#navbar ul li a:hover {
+    background-color: #9433FF;
+    color: #fff;
+}
+
+#navbar #current a {
+	background-color: blue;
+}
+
+#subnav {
+    width: 160px;
+    float: left;
+    margin: 0 2px 5px -10px;
+}
+#subnav ul {
+    list-style: none;
+    font-weight: bold;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+}
+#subnav ul li {
+    background-color: #999;
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #333;
+}
+#subnav ul li a {
+    padding: 5px 10px;
+    display:block;
+    color:white;
+    text-decoration: none;
+}
+#subnav ul li a:hover {
+    background-color: #333;
+    color: #fff;
+}
+#content {
+    padding: 2px 2px;
+    color: white; 
+
+}
+
+#framed_area  {
+ position: relative;
+ float: left;
+ background-color: black;
+ color: white; 
+ height: auto; 
+ margin-top: 3px; 
+ margin-bottom: 3px;
+ width: 100%; 
+ }
+
+
+#frame1 {
+	float: left;
+	font-family: kristen itc;
+	color: white; 
+	text-align:justify;
+	font-size: 13pt;
+	width: 40%; 
+	margin-left: 20px;
+	padding-bottom: 10px;
+ }
+#frame1 #span1 {
+ position: relative;
+ color: white; 
+ float: left; 
+ left: 5px; 
+ top: 4px;
+ }
+
+ #pagebutton {
+	color: white; 
+}	
+	
+#pagebutton a {text-decoration:none; color: white}
+#pagebutton a:visited {color: blue}
+#pagebutton a:hover { color: white; text-decoration:underline}
+
+  
+  /* <a href="outdoor"style= "color: white"> */
+ #frame1 #span2 {
+ color: white; 
+ position: relative;
+ left: 15px;
+ top: 10px;
+ font-size: 17pt;
+ font-weight: bold;
+ 
+ }
+  
+#content #pagebutton {
+ color: white;  
+ height:55px; 
+ 
+   }
+   
+#content table {
+  width:  auto;
+  margin: 10 auto;
+  background-color: #fff666;
+  padding: 2px 2px;
+  border: 1px black;
+  margin-top: 2px;
+  }
+  
+#content th {
+  width:  auto;
+  margin: 10 auto;
+  background-color: #ccc666;
+  padding: 2px 2px;
+  border: 1px black;
+  margin-top: 2px;
+}
+#content #exercise {
+  width:  56%;
+  margin: 10 auto;
+ <--background-color: green; -->
+  padding: 2px 2px;
+  border: 1px black;
+  margin-top: 2px;
+  position: relative;
+  left: 40px;
+ }
+#content td {
+  width:  auto;
+  margin: 0 auto;
+  background-color: #aaaFFF;
+  padding: 2px 2px;
+  border: 1px black;
+  margin-top: 1px;
+}
+.handle {
+  font-size: 10px;
+  cursor: move;
+  color: #777;
+}
+

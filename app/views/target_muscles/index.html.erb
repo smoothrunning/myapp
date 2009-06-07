@@ -1,0 +1,20 @@
+<h1>Listing Target Muscles</h1>
+
+<table>
+  <tr>
+    <th>Muscle</th>
+  </tr>
+
+<% for target_muscle in @target_muscles %>
+  <tr>
+    <td><%=h target_muscle.muscle %></td>
+    <td><%= link_to 'Show', target_muscle %></td>
+    <td><%= link_to 'Edit', edit_target_muscle_path(target_muscle) %></td>
+    <td><%= link_to 'Destroy', target_muscle, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Target Muscle', new_target_muscle_path %>

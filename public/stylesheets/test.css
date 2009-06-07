@@ -1,0 +1,98 @@
+#subform {
+    width: 100%;
+    margin: 20px 0 0 0;
+}
+
+#subform_headers span {
+    float:left;
+    margin: 0;
+    font-size: 0.75em;
+    font-weight: bold;
+    font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+    text-transform: uppercase;
+    color: #A5ADA8;
+}
+
+span.subform_header_text {
+    width: 171px;
+}
+
+span.subform_header_date {
+    width: 80px;
+}
+
+* html span.subform_header_date {
+    width: 77px;
+}
+
+div.subform_cell {
+    display: inline;
+}
+
+* html div.subform_cell {
+    display: inline;
+    margin: 0 5px 0 0;
+}
+
+input.familymember_text{
+    width: 160px;
+    margin: 0 0 3px 0;
+    padding: 0 0 0 5px;
+    font-size: 1.0em;
+}
+
+input.familymember_date{
+    width: 70px;
+    padding: 0;
+    text-align: center;
+    margin: 0 0 3px 0;
+    padding: 0;
+    font-size: 1.0em;
+}
+
+input.familymember_checkbox{
+    width: 12px;
+    margin: 0 30px 4px 25px;
+}
+
+* html input.familymember_checkbox{
+    width: 15px;
+    margin: 0 25px 3px 18px;
+    border: none;
+    background: none;
+}
+
+img.subform_icon {
+    margin: 0 0 -2px 0;
+}
+
+* html img.subform_icon {
+    margin: 0 0 1px 0;
+}
+
+button.additem{
+    margin: 5px 0 0 0;
+    padding: 0 0 0 18px;
+    color: #DF570D;
+    font-size: 0.9em;
+    font-family: "Trebuchet MS", Verdana, Arial, sans-serif;
+    font-weight: bold;
+    background: #FFFFFF url(/images/icon_additem.gif) 0 1px  no-repeat;
+    border: none;
+}
+
+* html button.additem{
+    padding: 0;
+    background: #FFFFFF url(/images/icon_additem.gif) 2px 2px no-repeat;
+}
+
+button.additem:hover{
+    color: #AB420A;
+}
+
+h2.header_datagrid {
+    width: 220px;
+    height: 22px;
+    background: #FFFFFF url(/images/header_datagrid.gif) no-repeat;
+    text-indent: -9999px;
+}

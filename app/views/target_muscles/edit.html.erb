@@ -1,0 +1,22 @@
+<h1>Editing Target Muscle</h1>
+
+<% form_for @target_muscle, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :muscle %><br />
+    <%= f.text_field :muscle %>
+  </p>
+  <p>
+  <div id ="exercises">
+  <%= render :partial =>'exercise', :collection => @target_muscle.exercises %>
+   </p>
+  </div>
+  <p><%= add_exercise_link "Add an exercise" %>  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @target_muscle %> |
+<%= link_to 'Back', target_muscles_path %>
