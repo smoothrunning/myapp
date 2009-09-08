@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090315195021) do
+ActiveRecord::Schema.define(:version => 20090609123100) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -68,6 +68,9 @@ ActiveRecord::Schema.define(:version => 20090315195021) do
     t.boolean  "redirect"
     t.string   "action_name"
     t.string   "controller_name"
+    t.string   "navcolor"
+    t.boolean  "member_page"
+    t.boolean  "public_page"
   end
 
   create_table "program_exercises", :force => true do |t|

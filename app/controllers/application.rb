@@ -18,11 +18,15 @@ class ApplicationController < ActionController::Base
   before_filter :get_pages_for_tabs
 
 	def get_pages_for_tabs
-	  if logged_in? and @current_user.admin_user?
+ 	if logged_in? and @current_user.admin_user?
+		@admintabs = Page.find_admin		
+	end	
+	
+	  if logged_in? 
 	    @tabs = Page.find_main
 	  else
-	    @tabs = Page.find_main_public
-	  end
+   		@tabs = Page.find_main_public
+  	  end
 	end
 	
 	def get_page_metadata

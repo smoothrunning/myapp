@@ -1,38 +1,45 @@
+<div style = "width:100%">
+	<fieldset>
+	<legend>Page Information</legend>
+	<div style = "float:left;position:relative">
+			<p>
+			  <%= f.label :name %>
+			  <%= f.text_field :name, :class => "txt" -%></p>
+			  <p>
+			  <%= f.label :title %>
+			  <%= f.text_field :title, :class => "txt" -%>
+		</p>
+		</div>
+			<div style="width:position:relative;float:left;margin-left:100px">
+			<fieldset>
+			<legend>Display page on</legend>
+			   <%= f.label :admin %> <%= f.check_box :admin , :class => "cb"%>
+			   <%= f.label :member_page %> <%= f.check_box :member_page , :class => "cb"%>
+			   <%= f.label :public_page %> <%= f.check_box :public_page , :class => "cb"%>
+			</fieldset>
+			</div>
+ 
+  </fieldset>
+  </div>
 <p>
-  <b>Name</b><br />
-  <%= f.text_field :name %>
+
+  <%= f.label :position%>
+  <%= f.text_field :position, :size => '3', :class => "txt" %>
+
+  <%= f.label :navlabel %>
+  <%= f.text_field :navlabel, :class => "txt" %>
+
+ <%= f.label :navcolor %>
+  <%= f.text_field :navcolor , :class => "txt" %>
 </p>
-
 <p>
-  <b>Title</b><br />
-  <%= f.text_field :title %>
-</p>
-
-<p>
-  <b>Body</b><br />
-  <%= f.text_area :body %>
-</p>
-
-<p>
-  <b>Admin?</b><br />
-  <%= f.check_box :admin %>
-
-
-
-	<b>Parent Page</b><br />
+ 
+  
+	<%= f.label :parent %>
 	<%= f.collection_select :parent_id, Page.find(:all), :id, :title, :include_blank => true %>
-</p>
 
-<p>
-  <b>Position</b><br />
-  <%= f.text_field :position, :size => '3' %>
-</p>
 
-<p>
-  <b>Nav Label</b><br />
-  <%= f.text_field :navlabel %>
 </p>
-
 <p>
   <b>Redirect?</b><br />
   <%= f.check_box :redirect %>
@@ -46,4 +53,8 @@
 <p>
   <b>Controller</b><br />
   <%= f.text_field :controller_name %>
+</p>
+<p>
+  <b>Body</b><br />
+  <%= f.text_area :body %>
 </p>

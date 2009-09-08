@@ -9,8 +9,8 @@
 		<%= pe_form.text_field :repititions , :size => "15"%>
 		<%= pe_form.text_field :weight , :size => "15"%>
 	   	<%= pe_form.collection_select(:target_muscle_id, TargetMuscle.find(:all), :id, :muscle, {}) %>
-	  
-		<%= link_to_function "remove", "$(this).up('.prog_exercise').remove()" %>
+	 	<%= pe_form.hidden_field :position %>
+	   	<%= link_to_function "remove", "$(this).up('.prog_exercise').remove()" %>
 	</li>
  <% end %>
 

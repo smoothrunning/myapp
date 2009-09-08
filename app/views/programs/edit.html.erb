@@ -5,9 +5,8 @@
   <%= f.error_messages %>
   
   <table>
-  	
   <tr> 
-  <h1>Maintain <%= @program.user.login+ "'".pluralize  %>  program
+  <h1><%= @program.user.login+ "'".pluralize  %>  program
     <%= f.submit "Update" %></h1>
    <td>
      <%= f.label :goal %>
@@ -48,9 +47,9 @@
    	<%= render :partial =>'program_exercise', :collection => @program.program_exercises %>
   	<%= sortable_element("program_exercise", :url => sort_programs_path ,:handle => "handle") %>
   	</ul>
-  </div>
+  
   <p><%= add_program_exercise_link "Add an exercise" %>  </p>
-    
+  </div>  
    
   	<table>
   	<tr><td>

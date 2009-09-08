@@ -6,6 +6,9 @@ class Program < ActiveRecord::Base
   
   validates_presence_of :goal, :description , :exercise_type, :start_date, :follow_up_date
 
+def completed_text
+	self.completed? ? "Yes" : "No" 
+end
 
  def new_program_exercise_attributes=(program_exercise_attributes)
     program_exercise_attributes.each do |attributes|

@@ -5,17 +5,48 @@ body {
     background-color: black;
 }
 #pagewrapper {
-    width: 99%;
+    width: 960px;
     margin: 2px auto;
     padding: 0;
-    border: 1px solid #999;
+    border: 0px solid #999;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #header {
-	margin: 0;
+	background-color:#44d8f6;
+	width:960px;
+	background-image: url(/images/SmoothRunning.gif);
+	height:80px;
+    background-position: left top
+    float:left;
+    margin: 0;
     padding: 0;
+}  
+#header1 {  
+   margin: 0;
+   padding: 0;
+}    
+#user {
+	position:relative;
+	top:30px;
+	float:left;
+    color: white;
+    left:15px;
+    font-size:22px; 
 }
+
+#log  {   
+	float:right;
+	text-decoration:none; 
+	position:relative;
+	top:35px;
+	right:15px;
+	font-size:16px; 
+	text-align:right;
+	color: white;
+	
+}
+
 #header p {
 	background-color: black;
     padding: 20px 10px;
@@ -26,7 +57,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 #footer {
-    background-color: purple;
+    background-color: darkmagenta;
     padding-top: 0px;
     padding-bottom: 0px;
     clear:both;
@@ -35,9 +66,10 @@ body {
 }
 #footer p, #footer a {
     text-align: center;
-    font-size: 12px;
+    font-size: 16px;
     color: white;
     font-weight:bold;
+    font-style: italic;
     margin: 0;
     padding: 2px;
 }
@@ -45,6 +77,82 @@ body {
 /* Navigation Bar */
 
 #navbar ul {
+    padding: 2px;
+    margin: 2px;
+    float: left;
+    text-align: center;
+    color: White;
+    width: 100%;
+    list-style: none;
+    font-weight: bold;
+    font-size: 14px;
+    
+}
+
+#navbar ul li {
+    display: inline;
+    text-align: center;
+    background-color: purple;
+    color: White;
+    float: left;
+    height : 30px;
+    font-family: kristen itc;
+    margin-left: 9px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+}
+
+#navbar ul li a {
+    padding: 0.2em 0.7em;
+    color: White;
+    text-decoration: none;
+    float:left;
+}
+#navbar ul li a:hover {
+    background-color: #9999AA;
+    height : 24px;
+    color: #fff;
+}
+#navbar #current {
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    
+}
+
+#subnav ul {
+    float:right;
+	display:inline;
+	list-style: none;
+    font-weight: bold;
+    font-size: 13px;
+    margin: 5px;
+   
+}
+#subnav ul li {
+    display:inline;
+	list-style: none;
+	background-color: limegreen;
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #333;
+    padding: 5px 0px 5px 0px ;
+ }
+#subnav ul li a {
+    padding: 5px 10px;
+    color:white;
+    text-decoration: none;
+}
+#subnav ul li a:hover {
+    background-color: cyan;
+    color: #fff;
+}
+
+/* Admin Navigation Bar */
+
+#adminnavbar ul {
     padding: 0;
     margin: 0;
     background-color: purple;
@@ -56,60 +164,33 @@ body {
     font-size: 13px;
     border-bottom: 2px solid #333;
 }
-#navbar ul li {
+#adminnavbar ul li {
     display: inline;
     color: White;
     float: left;
     border-right: 1px solid #333;
     font-family: arial, helvetica, sans-serif;
 }
-#navbar ul li a {
+#adminnavbar ul li a {
     padding: 0.2em 0.7em;
     background-color: purple;
     color: White;
     text-decoration: none;
     float:left;
 }
-#navbar ul li a:hover {
+#adminnavbar ul li a:hover {
     background-color: #9433FF;
     color: #fff;
 }
 
-#navbar #current a {
+#adminnavbar #current a {
 	background-color: blue;
 }
 
-#subnav {
-    width: 160px;
-    float: left;
-    margin: 0 2px 5px -10px;
-}
-#subnav ul {
-    list-style: none;
-    font-weight: bold;
-    font-size: 13px;
-    margin: 0;
-    padding: 0;
-}
-#subnav ul li {
-    background-color: #999;
-    border-bottom: 1px solid #333;
-    border-top: 1px solid #333;
-}
-#subnav ul li a {
-    padding: 5px 10px;
-    display:block;
-    color:white;
-    text-decoration: none;
-}
-#subnav ul li a:hover {
-    background-color: #333;
-    color: #fff;
-}
 #content {
     padding: 2px 2px;
     color: white; 
-
+    width: 960px;
 }
 
 #framed_area  {
@@ -118,29 +199,55 @@ body {
  background-color: black;
  color: white; 
  height: auto; 
- margin-top: 3px; 
- margin-bottom: 3px;
  width: 100%; 
+ padding-bottom: 0;
+ font-size: 12pt;
  }
-
-
+ 
 #frame1 {
 	float: left;
+	font-family: verdana;
+	color: white; 
+	text-align:center;
+	font-size: 12pt;
+	width: 49%; 
+	margin-left: 10px;
+}
+ 
+#frame2 {
+ 	float: right;
 	font-family: kristen itc;
 	color: white; 
-	text-align:justify;
-	font-size: 13pt;
-	width: 40%; 
-	margin-left: 20px;
-	padding-bottom: 10px;
+	text-align:center;
+	font-size: 12pt;
+	width: 45%; 
+	
+	margin-left: 40px;
+	padding: 0;
  }
-#frame1 #span1 {
- position: relative;
- color: white; 
- float: left; 
- left: 5px; 
- top: 4px;
+#frame3 {
+ 	float: right;
+	font-family: kristen itc;
+	font-size: 24pt;
+	line-height:2.0em;
+	text-align:center;
+	height: 65px;
+	width:45%;
+	margin-top: 30px;
+	margin-bottom:10px;
+	border-bottom: 2px solid white;
+ 	border-right: 2px solid white;
+ 	border-top: 2px solid white;
+ 	border-left: 2px solid white;
  }
+
+
+.imgborder{
+ border-bottom: 2px solid white;
+ border-right: 2px solid white;
+ border-top: 2px solid white;
+ border-left: 2px solid white;
+ display: block;}
 
  #pagebutton {
 	color: white; 
@@ -150,8 +257,6 @@ body {
 #pagebutton a:visited {color: blue}
 #pagebutton a:hover { color: white; text-decoration:underline}
 
-  
-  /* <a href="outdoor"style= "color: white"> */
  #frame1 #span2 {
  color: white; 
  position: relative;
@@ -171,7 +276,7 @@ body {
 #content table {
   width:  auto;
   margin: 10 auto;
-  background-color: #fff666;
+  background-color: darkmagenta;
   padding: 2px 2px;
   border: 1px black;
   margin-top: 2px;
@@ -180,11 +285,31 @@ body {
 #content th {
   width:  auto;
   margin: 10 auto;
-  background-color: #ccc666;
+ <--applies to exercise header; -->
+  padding: 2px 2px;
   padding: 2px 2px;
   border: 1px black;
   margin-top: 2px;
 }
+
+p label {  
+  display:inline-block;
+  width: 70px; /*control the lable text width*/ 
+  font: bold 0.9em Arial, Helvetica, sans-serif;
+  padding-left:20px;
+  padding-right:10px;
+  vertical-align:text-top;
+   
+}
+
+.txt {  
+  
+    }
+.txtarea {  
+   margin-left:104px;
+	
+    }
+
 #content #exercise {
   width:  56%;
   margin: 10 auto;
@@ -198,7 +323,8 @@ body {
 #content td {
   width:  auto;
   margin: 0 auto;
-  background-color: #aaaFFF;
+  background-color: white;
+  color:black;
   padding: 2px 2px;
   border: 1px black;
   margin-top: 1px;

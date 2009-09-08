@@ -2,8 +2,9 @@
   <div id='subnav'>
     <ul>
       <% for page in @subpages %>
-        <li><%= link_to page.navlabel, view_page_path(page.name) %></li>
-      <% end %>
+        <li <%= "style='background-color:#{page.navcolor}'" %> ><%= link_to page.navlabel, view_page_path(page.name) %></li>
+      <% end -%>
+      </ul>
   </div>
 <% elsif @page.parent %>
   <div id='subnav'>
@@ -13,15 +14,17 @@
       </li>
     </ul>
   </div>
-<% end %>
+<% end -%>
 
 
 <% if logged_in? and @current_user.admin_user? %>
+<div style = "position:absolute; top:13px; left: 40px">
+ 	 <a href='#' id='edit'>Edit This Page</a> 
+  </div>
 
-<a href='#' id='edit'>Edit This Page</a>
 
 	<%= in_place_editor_field :page, 'body', {}, 
-	{:rows => 20, :cols => 80, :external_control => 'edit', :external_control_only => true,
+	{:rows => 20, :cols => 120, :external_control => 'edit', :external_control_only => true,
 	 :load_text_url => {:controller => 'viewer', :action => 'get_unformatted_text', :id => @page.id}
 	} %>
 
@@ -29,4 +32,4 @@
 
 	<%= @page.body %>
 
-<% end %>
+<% end -%>

@@ -1,35 +1,39 @@
-<h1>New message</h1>
-
+	
 <% form_for(@message) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :company %><br />
-    <%= f.text_field :company %>
-  </p>
-  <p>
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
-  </p>
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+<h2 style="color:Limegreen">Contact Amanda at Smooth Running, Send an email or phone on 0412 489 963</h1>
 
+<div >
+	<fieldset>
+	<legend style="color:Limegreen">Personal Information</legend>
+	<p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "txt"%>
+	</p>
+  	<p>
+    <%= f.label :phone %>
+    <%= f.text_field :phone, :class => "txt" %>
+  	</p>
+  	<p>
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => "txt" %>
+       
+    <%= f.submit "Send" %>
+ 
+  	</p>
+  </fieldset>
+</div>
+  <p>
+    <%= f.label :subject %>
+    <%= f.text_field :subject , :size => '133', :class => "txt"%>
+  </p>
+  <p>
+    
+    <%= f.text_area :body , :class => "txtarea",:cols => "100", :rows => "9"%>
+  </p>
+
+  
+  
+<% end %>
 

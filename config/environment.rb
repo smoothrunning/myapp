@@ -65,3 +65,13 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 end
+
+
+# Include your application configuration below
+my_date_formats = { 
+:long_aus_date  => '%A %d %B %Y' ,
+:short_aus_date  => '%d/%m/%Y'
+} 
+
+ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(my_date_formats) 
+ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(my_date_formats) 
